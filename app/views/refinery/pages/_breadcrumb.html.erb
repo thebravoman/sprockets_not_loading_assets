@@ -1,0 +1,8 @@
+<ol class="breadcrumb">
+	<li><%= link_to "FLLCasts", refinery.root_path %></li>        
+	<% @page.ancestors.collect do |p| %>
+		<li><%= link_to p.title, p.url %> </li>
+	<% end %>
+	<li class="active"><%= @page.title %></li>
+	<%=  %>
+</ol>

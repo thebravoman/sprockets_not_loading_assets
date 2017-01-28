@@ -1,0 +1,65 @@
+<title><%= browser_title(yield(:title)) %></title>
+
+<div class="service">
+	<div class="container">
+		
+		<h1><%= page_title %></h1>
+		
+		<% login_content = @page.content_for(:login_widget) %>   
+		
+		<div class="row">
+			<div class="col-sm-8">
+				<div class="sheet text-content">
+					<%= render "breadcrumb" %>
+					<div class="inside-sheet">
+						<%= @page.content_for(:body).html_safe %>
+						
+						<% if !login_content.blank? && current_user %>
+							<%= raw login_content %>
+						<% end %>
+						
+						<% if @page.has_comments %> 
+							<%= render partial: "shared/discourse", locals: {object: @page}%>
+						<% end %>
+						
+					</div>
+				</div>
+			</div>
+			
+			<% if !login_content.blank? %>
+				<div class="col-sm-4 text-content">
+					<div class="sheet">
+						<div class="inside-sheet">
+							<% if current_user %>
+								<%= raw login_content %>
+							<% else %>
+								<p>You must first create an account or login at FLLCasts.com</p>
+								<%= link_to "Login", main_app.new_user_session_path(:return_to=>request.original_url), class: "btn btn-action" %> 
+							<% end %>
+						</div>
+					</div>
+				</div>
+			<% end %>
+
+			<div class="col-sm-4 text-content">
+				<div class="sheet">
+					<div class="inside-sheet">
+						<%=raw @page.content_for(:side_body) %>
+					</div>
+				</div>
+			</div>
+
+			<% playlists = @page.content_for(:playlists) %>   
+			<% if !playlists.blank? %>
+				<div class="col-sm-4">
+					<aside>
+							<%= render layout: "shared/contents_thumbnails_section", locals: { contents: Playlist.where(id: playlists.split(",")), title:"Recommended Playlists" } do%>
+							<% end %>
+					</aside>
+			</div>
+			<% end %>
+						
+		</div>
+		
+	</div>
+</div>
