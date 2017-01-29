@@ -14,7 +14,6 @@ FLLCasts::Application.configure do
 	config.assets.debug = true
 
 	# For favicon
-	config.public_file_server.enabled = false
 	
   # In the development environment your application's code is reloaded on
   # every request.  This slows down response time but is perfect for development
