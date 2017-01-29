@@ -4,9 +4,9 @@ In rails 5 if there is an engine only the assets paths of the engine are loaded.
 
 There are three branches in the project
 
-  rails4
-  rails5_without_engine
-  rails5_with_engine
+  rails4,
+  rails5_without_engine,
+  rails5_with_engine,
 
 In rails4 you do
 
