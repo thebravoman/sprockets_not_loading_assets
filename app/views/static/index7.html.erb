@@ -1,1 +1,4 @@
-<h1>This is just some content </h1>
+<h1>These are the paths </h1>
+<% Rails.application.assets.paths.each do |path| %>
+		<p><%= path %></p>
+<% end %>
