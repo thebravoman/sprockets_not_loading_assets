@@ -1,4 +1,4 @@
-class StaticController <  ActionController::Base
+class StaticController < ActionController::Base
 
 	def index
 		render "index7"
