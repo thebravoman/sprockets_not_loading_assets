@@ -2,10 +2,11 @@ Sprockets with an engine in rails4 is behaving differently than sprockets with e
 
 In rails 5 if there is an engine only the assets paths of the engine are loaded. The engine is refinerycms.
 
-There are three branches
-rails4
-rails5_without_engine
-rails5_with_engine
+There are three branches in the project
+
+  rails4
+  rails5_without_engine
+  rails5_with_engine
 
 In rails4 you do
 
